@@ -13,14 +13,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	salInt, _ := strconv.Atoi(salstr)
 
-	buckets := makeBuckets(salInt)
+	buckets := makeBarefootBuckets(salInt)
 	fmt.Fprintf(w, "SPLURGE bucket is %v,\n", buckets["splurge"])
 	fmt.Fprintf(w, "SMILE bucket is %v,\n", buckets["smile"])
 	fmt.Fprintf(w, "FIRE EXTINGUISHER bucket is %v.\n", buckets["fire extinguisher"])
 
 }
 
-func makeBuckets(salary int) map[string]int {
+func makeBarefootBuckets(salary int) map[string]int {
 	buckets := make(map[string]int)
 	buckets["splurge"] += salary / 10
 	buckets["smile"] += salary / 10
